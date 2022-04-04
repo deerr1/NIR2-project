@@ -1,0 +1,17 @@
+<div style="margin-left: 30%; margin-top: 30px;">
+    <h1 style="font-weight: 500;">Сайт разработал студент 4 курса Югорского государственного университета</h1>
+    <h1 style="font-weight: 500;">группы 1183б Фуражкин Димитрий Александрович в 2022 году</h1>
+</div>
+
+{% extends "admin/login.html" %}
+
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    Сайт учета деталей
+</h1>
+{% endblock %}
+

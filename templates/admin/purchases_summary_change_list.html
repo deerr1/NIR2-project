@@ -1,0 +1,60 @@
+{% extends "admin/change_list.html" %}
+
+{% block content_title %}
+    <h1> Результат покупок </h1>
+{% endblock %}
+
+{% load humanize %}
+
+{% block result_list %}
+
+<!-- ... -->
+
+<div class="results">
+    <table>
+
+    <thead>
+      <tr>
+        <th>
+          <div class="text">
+            <a href="#">Поставщик</a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Кол-во деталей</a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Сумма продаж</a>
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for row in summary %}
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <td> {{ row.suplier_detail__supplier__name }} </td>
+        <td> {{ row.total | intcomma }} </td>
+        <td> {{ row.total_sales | default:0 | intcomma }} руб. </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+    <tr style="font-weight:bold; border-top:2px solid #DDDDDD;">
+        <td> Сумма </td>
+        <td> {{ summary_total.total | default:0 }} </td>
+        <td> {{ summary_total.total_sales | default:0 }} руб. </td>
+    </tr>
+
+  </table>
+</div>
+
+<!-- ... -->
+
+{% endblock %}
+
+{% block pagination %}{% endblock %}
+
